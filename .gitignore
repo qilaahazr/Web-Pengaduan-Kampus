@@ -1,0 +1,18 @@
+# Environment variables
+.env
+.env.local
+
+# Backup files
+backup/
+backup_latest/
+backup_*/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -8,9 +8,9 @@ include '../auth/session.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Sistem Pengaduan Kampus</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-icons.css">
 </head>
 <body>
 
@@ -45,33 +45,21 @@ include '../auth/session.php';
 
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <a href="tambah_pengaduan.php" class="text-decoration-none">
-                                <div class="card bg-primary text-white h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title"><i class="bi bi-pencil-square"></i> Buat Pengaduan</h5>
-                                                <p class="card-text small">Ajukan keluhan atau masukan baru</p>
-                                            </div>
-                                            <i class="bi bi-arrow-right fs-1 opacity-50"></i>
-                                        </div>
-                                    </div>
+                            <a href="tambah_pengaduan.php" style="display:flex; align-items:center; justify-content:space-between; height:120px; padding:20px; background:#1e3a8a; color:white; border-radius:8px; text-decoration:none; box-sizing:border-box;">
+                                <div>
+                                    <h5 style="margin:0;"><i class="bi bi-pencil-square"></i> Buat Pengaduan</h5>
+                                    <p style="margin:5px 0 0 0; opacity:0.8; font-size:14px;">Ajukan keluhan atau masukan baru</p>
                                 </div>
+                                <i class="bi bi-arrow-right" style="font-size:24px; opacity:0.5;"></i>
                             </a>
                         </div>
                         <div class="col-md-6">
-                            <a href="../auth/logout.php" class="text-decoration-none">
-                                <div class="card bg-secondary text-white h-100">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div>
-                                                <h5 class="card-title"><i class="bi bi-box-arrow-right"></i> Logout</h5>
-                                                <p class="card-text small">Keluar dari sistem</p>
-                                            </div>
-                                            <i class="bi bi-arrow-right fs-1 opacity-50"></i>
-                                        </div>
-                                    </div>
+                            <a href="../auth/logout.php" style="display:flex; align-items:center; justify-content:space-between; height:120px; padding:20px; background:#1e3a8a; color:white; border-radius:8px; text-decoration:none; box-sizing:border-box;">
+                                <div>
+                                    <h5 style="margin:0;"><i class="bi bi-box-arrow-right"></i> Logout</h5>
+                                    <p style="margin:5px 0 0 0; opacity:0.8; font-size:14px;">Keluar dari sistem</p>
                                 </div>
+                                <i class="bi bi-arrow-right" style="font-size:24px; opacity:0.5;"></i>
                             </a>
                         </div>
                     </div>
@@ -81,6 +69,6 @@ include '../auth/session.php';
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,52 +1,68 @@
 <?php
 
 session_start();
+
+// Generate CSRF token if not exists
+if(!isset($_SESSION['csrf_token'])){
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 include '../config/koneksi.php';
 
 if(isset($_POST['login'])){
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    // CSRF validation
+    $formToken = $_POST['csrf_token'] ?? '';
+    $sessionToken = $_SESSION['csrf_token'] ?? '';
+    if(empty($formToken) || empty($sessionToken) || !hash_equals($sessionToken, $formToken)){
+        echo "<script>alert('CSRF validation failed!');</script>";
+    } else {
+        $email = trim($_POST['email']);
+        $password = $_POST['password'];
 
-    $query = mysqli_query($conn,
-        "SELECT * FROM users WHERE email='$email'"
-    );
+        $stmt = mysqli_prepare($conn, "SELECT * FROM users WHERE email = ?");
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $data = mysqli_fetch_assoc($result);
 
-    $data = mysqli_fetch_assoc($query);
+        if($data){
 
-    if($data){
+            if(password_verify($password, $data['password'])){
 
-        if(password_verify($password, $data['password'])){
+                // Regenerate session ID to prevent session fixation
+                session_regenerate_id(true);
 
-            $_SESSION['id'] = $data['id'];
-            $_SESSION['nama'] = $data['nama'];
-            $_SESSION['role'] = $data['role'];
+                $_SESSION['id'] = $data['id'];
+                $_SESSION['nama'] = $data['nama'];
+                $_SESSION['role'] = $data['role'];
 
-            if($data['role'] == 'admin'){
-                header("Location: ../admin/kelola_pengaduan.php");
+                if($data['role'] == 'admin'){
+                    header("Location: ../admin/kelola_pengaduan.php");
+                } else {
+                    header("Location: ../user/dashboard.php");
+                }
+                exit;
+
             } else {
-                header("Location: ../user/dashboard.php");
+
+                echo "
+                <script>
+                    alert('Password salah');
+                </script>
+                ";
+
             }
-            exit;
 
         } else {
 
             echo "
             <script>
-                alert('Password salah');
+                alert('Email tidak ditemukan');
             </script>
             ";
 
         }
-
-    } else {
-
-        echo "
-        <script>
-            alert('Email tidak ditemukan');
-        </script>
-        ";
-
     }
 }
 ?>
@@ -57,7 +73,7 @@ if(isset($_POST['login'])){
 
     <title>Login</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/style.css">
 
