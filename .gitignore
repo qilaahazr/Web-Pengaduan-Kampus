@@ -16,3 +16,5 @@ backup_*/
 # OS
 .DS_Store
 Thumbs.db
+# AI
+CLAUDE.md
