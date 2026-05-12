@@ -1,0 +1,160 @@
+:root{
+    --biru:#1e3a8a;
+    --oren:#f97316;
+    --kuning:#facc15;
+    --putih:#ffffff;
+    --hitam:#1f2937;
+    --abu:#f3f4f6;
+}
+
+body{
+    background: var(--abu);
+}
+
+.navbar-custom{
+    background: var(--biru);
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand{
+    color: var(--putih) !important;
+}
+
+.btn-custom{
+    background: var(--oren);
+    color: var(--putih);
+    border: none;
+}
+
+.btn-custom:hover{
+    background: #ea580c;
+    color: var(--putih);
+}
+
+.btn-outline-custom{
+    border: 2px solid var(--oren);
+    color: var(--oren);
+    background: transparent;
+}
+
+.btn-outline-custom:hover{
+    background: var(--oren);
+    color: var(--putih);
+}
+
+.logo-pnc{
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.card{
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid #e5e7eb;
+}
+
+.card-header{
+    background: var(--biru);
+    color: var(--putih);
+    border-bottom: none;
+}
+
+.card-body{
+    background: var(--putih);
+}
+
+.table-primary{
+    background-color: var(--biru) !important;
+    color: var(--putih);
+}
+
+.table-primary th{
+    border-color: var(--biru);
+    background-color: var(--biru) !important;
+    color: var(--putih) !important;
+}
+
+.table-secondary{
+    background-color: var(--hitam) !important;
+    color: var(--putih);
+}
+
+.badge-kuning{
+    background-color: var(--kuning);
+    color: var(--hitam);
+}
+
+.badge-oren{
+    background-color: var(--oren);
+    color: var(--putih);
+}
+
+.badge-biru{
+    background-color: var(--biru);
+    color: var(--putih);
+}
+
+.text-biru{
+    color: var(--biru) !important;
+}
+
+.text-oren{
+    color: var(--oren) !important;
+}
+
+.text-kuning{
+    color: var(--kuning) !important;
+}
+
+.bg-biru{
+    background-color: var(--biru) !important;
+    color: var(--putih);
+}
+
+.bg-kuning{
+    background-color: var(--kuning) !important;
+    color: var(--hitam);
+}
+
+.navbar-custom .navbar-brand{
+    font-size: 1.2rem;
+}
+
+.card a:hover{
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color: var(--oren);
+    box-shadow: 0 0 0 0.25rem rgba(249, 115, 22, 0.25);
+}
+
+.form-label{
+    font-weight: 500;
+    color: var(--hitam);
+}
+
+.table-hover tbody tr:hover{
+    background-color: rgba(249, 115, 22, 0.1);
+}
+
+.modal-header{
+    background: var(--biru);
+    color: var(--putih);
+}
+
+.modal-header .btn-close{
+    filter: invert(1);
+}
+
+.footer-custom{
+    background: var(--hitam);
+    color: var(--putih);
+    padding: 20px 0;
+    margin-top: 50px;
+}

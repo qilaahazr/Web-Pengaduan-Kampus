@@ -1,0 +1,38 @@
+:root{
+    --biru:#1e3a8a;
+    --oren:#f97316;
+    --kuning:#facc15;
+    --putih:#ffffff;
+    --abu:#f3f4f6;
+}
+
+body{
+    background: var(--abu);
+}
+
+.navbar-custom{
+    background: var(--biru);
+}
+
+.btn-custom{
+    background: var(--oren);
+    color:white;
+}
+
+.btn-custom:hover{
+    background:#ea580c;
+    color:white;
+}
+
+.logo-pnc{
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.card{
+    max-width: 500px;
+    margin: auto;
+}
